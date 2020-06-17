@@ -13,6 +13,9 @@ class MainActivity : AppCompatActivity(), OnSeekBarChangeListener {
     private val renderer = SimpleRenderer()
     private val cube = Cube()
     private val pyramid = Pyramid()
+
+    private lateinit var angleListener: AngleListener
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate")
@@ -25,18 +28,27 @@ class MainActivity : AppCompatActivity(), OnSeekBarChangeListener {
         seekbar_z.setOnSeekBarChangeListener(this)
         renderer.setObj(cube)
         gl_view.setRenderer(renderer)
+        angleListener = AngleListener(this)
+        angleListener.onAngleChanged { x, y, z ->
+            Log.d(TAG, "onAngleChanged: x=$x, y=$y, z=$z")
+            renderer.rotateObjX(y)
+            renderer.rotateObjY(-z)
+            renderer.rotateObjZ(x)
+        }
     }
 
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume")
         gl_view.onResume()
+        angleListener.resume()
     }
 
     override fun onPause() {
         super.onPause()
         Log.d(TAG, "onPause")
         gl_view.onPause()
+        angleListener.pause()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

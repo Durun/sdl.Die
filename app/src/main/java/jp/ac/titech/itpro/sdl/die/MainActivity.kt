@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     private val renderer = SimpleRenderer()
     private val cube = Cube()
     private val pyramid = Pyramid()
+    private val cylinder = Cylinder(6)
 
     private lateinit var angleListener: AngleListener
 
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.menu_cube -> renderer.setObj(cube)
             R.id.menu_pyramid -> renderer.setObj(pyramid)
+            R.id.menu_cylinder -> renderer.setObj(cylinder)
         }
         return true
     }

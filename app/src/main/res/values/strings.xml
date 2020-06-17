@@ -7,4 +7,5 @@
     <string name="menu_cube_label">Cube</string>
     <string name="menu_pyramid_label">Pyramid</string>
     <string name="menu_cylinder_label">Cylinder</string>
+    <string name="menu_cylinder_smooth_label">Cylinder(smooth)</string>
 </resources>

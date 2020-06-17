@@ -11,69 +11,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="@dimen/margin"
-        app:layout_constraintBottom_toTopOf="@+id/seekbar_x"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/seekbar_x_label"
-        android:layout_width="@dimen/seekbar_label_width"
-        android:layout_height="@dimen/seekbar_height"
-        android:layout_margin="@dimen/margin"
-        android:gravity="center"
-        android:text="@string/seekbar_x_label"
-        android:textSize="@dimen/seekbar_label_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/seekbar_y_label"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <SeekBar
-        android:id="@+id/seekbar_x"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/seekbar_height"
-        android:layout_margin="@dimen/margin"
-        app:layout_constraintBottom_toTopOf="@+id/seekbar_y"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/seekbar_x_label" />
-
-    <TextView
-        android:id="@+id/seekbar_y_label"
-        android:layout_width="@dimen/seekbar_label_width"
-        android:layout_height="@dimen/seekbar_height"
-        android:layout_margin="@dimen/margin"
-        android:gravity="center"
-        android:text="@string/seekbar_y_label"
-        android:textSize="@dimen/seekbar_label_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/seekbar_z_label"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <SeekBar
-        android:id="@+id/seekbar_y"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/seekbar_height"
-        android:layout_margin="@dimen/margin"
-        app:layout_constraintBottom_toTopOf="@+id/seekbar_z"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/seekbar_y_label" />
-
-    <TextView
-        android:id="@+id/seekbar_z_label"
-        android:layout_width="@dimen/seekbar_label_width"
-        android:layout_height="@dimen/seekbar_height"
-        android:layout_margin="@dimen/margin"
-        android:gravity="center"
-        android:text="@string/seekbar_z_label"
-        android:textSize="@dimen/seekbar_label_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <SeekBar
-        android:id="@+id/seekbar_z"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/seekbar_height"
-        android:layout_margin="@dimen/margin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/seekbar_z_label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

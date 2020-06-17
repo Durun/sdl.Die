@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SeekBar
-import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), OnSeekBarChangeListener {
+class MainActivity : AppCompatActivity() {
     private val renderer = SimpleRenderer()
     private val cube = Cube()
     private val pyramid = Pyramid()
@@ -20,12 +18,6 @@ class MainActivity : AppCompatActivity(), OnSeekBarChangeListener {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate")
         setContentView(R.layout.activity_main)
-        seekbar_x.max = 360
-        seekbar_y.max = 360
-        seekbar_z.max = 360
-        seekbar_x.setOnSeekBarChangeListener(this)
-        seekbar_y.setOnSeekBarChangeListener(this)
-        seekbar_z.setOnSeekBarChangeListener(this)
         renderer.setObj(cube)
         gl_view.setRenderer(renderer)
         angleListener = AngleListener(this)
@@ -65,17 +57,6 @@ class MainActivity : AppCompatActivity(), OnSeekBarChangeListener {
         }
         return true
     }
-
-    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-        when (seekBar.id) {
-            R.id.seekbar_x -> renderer.rotateObjX(progress.toFloat())
-            R.id.seekbar_y -> renderer.rotateObjY(progress.toFloat())
-            R.id.seekbar_z -> renderer.rotateObjZ(progress.toFloat())
-        }
-    }
-
-    override fun onStartTrackingTouch(seekBar: SeekBar) {}
-    override fun onStopTrackingTouch(seekBar: SeekBar) {}
 
     companion object {
         private val TAG = MainActivity::class.java.simpleName

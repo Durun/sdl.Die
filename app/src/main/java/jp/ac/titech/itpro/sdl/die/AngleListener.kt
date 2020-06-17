@@ -18,6 +18,10 @@ class AngleListener(context: Activity) : SensorEventListener {
     private val rotationMatrix = FloatArray(9)
     private val orientationAngles = FloatArray(3)
 
+    private val angleX = FloatStabilizer()
+    private val angleY = FloatStabilizer()
+    private val angleZ = FloatStabilizer()
+
     fun onAngleChanged(handler: (x: Float, y: Float, z: Float) -> Unit) {
         handlers.add(handler)
     }
@@ -64,6 +68,9 @@ class AngleListener(context: Activity) : SensorEventListener {
         val x = orientationAngles[0] * 180 / pi
         val y = orientationAngles[1] * 180 / pi
         val z = orientationAngles[2] * 180 / pi
-        handlers.forEach { handler -> handler(x, y, z) }
+        angleX.update(x)
+        angleY.update(y)
+        angleZ.update(z)
+        handlers.forEach { handler -> handler(angleX.value, angleY.value, angleZ.value) }
     }
 }
